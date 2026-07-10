@@ -1,9 +1,11 @@
-from parser import load_history
-import statistics as stats
+from src.parser import load_history
+import src.stats as stats
 
-print("=" * 45)
-print("Spotify History Analyzer")
-print("=" * 45)
+from src.utils import print_header
+
+from src.utils import format_total_time
+
+print_header("Spotify History Analyzer")
 
 print()
 
@@ -11,7 +13,7 @@ print("Lendo histórico...")
 
 df = load_history("data")
 
-print("OK!\n")
+print(f"OK! ({len(df):,} reproduções carregadas)")
 
 print(f"Reproduções: {stats.total_tracks(df):,}")
 
@@ -21,11 +23,10 @@ print(f"Artistas únicos: {stats.unique_artists(df):,}")
 
 print(f"Álbuns únicos: {stats.unique_albums(df):,}")
 
-dias, horas, minutos = stats.listening_time(df)
-
 print()
 
-print(f"Tempo ouvindo música: {dias} dias {horas} horas {minutos} minutos")
+tempo = format_total_time(df["duration_ms"].sum())
+print(f"Tempo ouvindo música: {tempo}")
 
 print()
 

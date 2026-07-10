@@ -1,4 +1,3 @@
-Put your spotify history files in this folder
-It needs contain "Streaming_History_Audio*"
+Put all the .json files that you downloaded from Spotify in this folder
 
-Ex: Streaming_History_Audio_2022, Streaming_History_Audio_2023, Streaming_History_Audio_2024, etc.
+Example: \Spotify-History-Analyzer\data\Streaming_History_Audio_*.json
